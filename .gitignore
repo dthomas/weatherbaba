@@ -1,0 +1,5 @@
+baba
+*.o
+*.a
+data/*.tif
+data/*.dat
