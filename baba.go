@@ -20,11 +20,13 @@ func main() {
 	elvn := []float64{17, 20, 39}
 	dats := []float64{1467243000, 1467313200, 1467313200}
 	log.SetOutput(ioutil.Discard)
+	fmt.Println("Weather Baba - Weather Prediction")
 	for idx, loc := range locations {
 		go fmt.Println(predictWeatherFor(loc, lats[idx], lons[idx], elvn[idx], dats[idx]))
 	}
 	var dummyInput string
 	fmt.Scanln(&dummyInput)
+	fmt.Println("Baba da!")
 }
 
 func predictWeatherFor(loc string, lat, lon, eln, dttm float64) string {
