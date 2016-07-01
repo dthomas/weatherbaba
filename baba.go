@@ -8,6 +8,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/dthomas/weatherbaba/model"
 	"github.com/sajari/regression"
@@ -64,8 +65,10 @@ func predictWeatherFor(loc string, lat, lon, eln, dttm float64) string {
 	t, r, h, p := <-temp, <-rain, <-humd, <-pres
 
 	cond := weatherCondition(t, r)
+	tm, _ := time.Unix(int64(dttm), 0).UTC().MarshalText()
+	// tm.Format("2006-01-02T15:04:05Z")
 
-	return fmt.Sprintf("%s|%.2f,%.2f,%.0f|%s|%+f|%.1f|%.0f", strings.ToUpper(loc), lat, lon, eln, cond, t, p, h)
+	return fmt.Sprintf("%s|%.2f,%.2f,%.0f|%s|%s|%+f|%.1f|%.0f", strings.ToUpper(loc), lat, lon, eln, tm, cond, t, p, h)
 }
 
 func predictItem(data [][]string, lat, lon, eln, dttm float64, item chan float64, desc string, idx int64) {

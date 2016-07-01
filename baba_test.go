@@ -8,8 +8,8 @@ import (
 
 func TestPredictWeatherForSuccess(t *testing.T) {
 	log.SetOutput(ioutil.Discard)
-	if msg := predictWeatherFor("adl", 0.0, 0.0, 0.0, 00); msg != "ADL|0.00,0.00,0|Rain|+2242.263801|-47684.6|-11678" {
-		t.Errorf("Expected ADL|0.00,0.00,0|Rain|+2242.263801|-47684.6|-11678, but received %s", msg)
+	if msg := predictWeatherFor("adl", 0.0, 0.0, 0.0, 00); msg != "ADL|0.00,0.00,0|1970-01-01T00:00:00Z|Rain|+2242.263801|-47684.6|-11678" {
+		t.Errorf("Expected ADL|0.00,0.00,0|1970-01-01T00:00:00Z|Rain|+2242.263801|-47684.6|-11678, but received %s", msg)
 	}
 }
 
