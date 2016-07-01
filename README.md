@@ -22,6 +22,9 @@ Only data for the last seven days are recommended to include in the file.
 ## Build Instructions
 
 * Ensure Golang is installed (https://golang.org/dl/)
+* Ensure `$GOPATH` is set properly
+* Run `go get github.com/dthomas/weatherbaba` in terminal
+* Run `cd $GOPATH/src/github.com/dthomas/weatherbaba` in terminal
 * Use `go run baba.go` to get the predictions for `June 30, 2016 9:00 AM` Local Time
 * To produce a binary, please use `go build`
 
